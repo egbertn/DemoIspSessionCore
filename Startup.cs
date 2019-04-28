@@ -63,10 +63,9 @@ namespace DemoISPSessionCore
             app.UseCookiePolicy();
 
             app.UseMvc();
-
+#pragma warning disable 1998
             app.Run(async context =>
-            {
-                await Task.CompletedTask; //fake
+            {                
                 if (!context.ApplicationCache().KeyExists("SomeCache"))
                 {
                     context.ApplicationCache()["SomeCache"] = new SomeCacheClass() { SomeDate = DateTimeOffset.Now, SomeString = "Some fancy string" };

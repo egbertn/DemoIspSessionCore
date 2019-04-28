@@ -13,7 +13,7 @@ namespace DemoISPSessionCore.Models
             {
                 var features = HttpContext.Session();
                 return features ??
-                    throw new Exception("ISP SEssion Feature not found");
+                    throw new Exception("ISP Session Feature not found");
             }
         }
 
