@@ -28,7 +28,7 @@ namespace DemoISPSessionCore
             services.Configure<CacheAppSettings>(Configuration.GetSection("ispcache.io"));
 
             services.AddISPSession();
-              services.AddISPCache();
+            services.AddISPCache();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -56,21 +56,22 @@ namespace DemoISPSessionCore
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            //initialize session & application
             app.UseISPSession();
             app.UseISPCache();
-            //initialize application
-
-            app.UseCookiePolicy();
-
-            app.UseMvc();
-#pragma warning disable 1998
-            app.Run(async context =>
-            {                
+            app.Use(async (context, next) =>
+            {
                 if (!context.ApplicationCache().KeyExists("SomeCache"))
                 {
                     context.ApplicationCache()["SomeCache"] = new SomeCacheClass() { SomeDate = DateTimeOffset.Now, SomeString = "Some fancy string" };
                 }
+                await next();
             });
+            app.UseCookiePolicy();
+
+            app.UseMvc();
+         
         }
     }
 }
