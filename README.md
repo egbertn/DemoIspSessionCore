@@ -14,11 +14,10 @@ while still giving the cached data using a JIT pattern.
 
 This project, was a lot of fun creating. Please support it by bying a license so I can continue to improve it in future.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jEAWZCYQnp4" 
-frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
+<a href="https://www.youtube.com/embed/jEAWZCYQnp4" target="_blank"><img src="http://img.youtube.com/vi/jEAWZCYQnp4/0.jpg" 
+alt="Howto instruction on YouTube" width="240" height="180" border="10" /></a>
 
 # roadmap for ISP Session.io
-1) Performance counters
-2) Command line tool to investigate session
-3) Integration with MemCached (as an choice between Redis).
+* Performance counters
+* Command line tool to investigate session
+* Integration with MemCached (as an choice between Redis).
